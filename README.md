@@ -55,3 +55,8 @@ INFO: 2 processes: 2 internal.
 FAILED: Build did NOT complete successfully
 ```
 
+To reproduce the bug, run
+```
+bazel build //...
+```
+This will use the installed drake in `/opt/drake`
