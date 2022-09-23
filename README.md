@@ -34,3 +34,24 @@ INFO: Elapsed time: 38.676s, Critical Path: 0.15s
 INFO: 12 processes: 12 internal.
 FAILED: Build did NOT complete successfully
 ```
+---------------------
+Update:<br>
+By adding 
+```
+build --cxxopt=-I/usr/include/eigen3
+```
+to the `.bazelrc` file, I can solve the above problem. However, when I try to build the new added `connection_test.cc` which uses `iiwa_status_receiver.h`, I encounter a similar header not found error:
+```
+ERROR: /home/chenwang/repro_drake_bazel_external/drake_bazel_installed/apps/BUILD.bazel:102:10: Compiling apps/connection_test.cc failed: (Exit 1): gcc failed: error executing command /usr/bin/gcc -U_FORTIFY_SOURCE -fstack-protector -Wall -Wunused-but-set-parameter -Wno-free-nonheap-object -fno-omit-frame-pointer -g0 -O2 '-D_FORTIFY_SOURCE=1' -DNDEBUG -ffunction-sections ... (remaining 32 arguments skipped)
+
+Use --sandbox_debug to see verbose messages from the sandbox and retain the sandbox build root for debugging
+In file included from apps/connection_test.cc:10:
+bazel-out/k8-opt/bin/external/drake/_virtual_includes/.drake_headers/drake/manipulation/kuka_iiwa/iiwa_status_receiver.h:6:10: fatal error: drake/lcmt_iiwa_status.hpp: No such file or directory
+    6 | #include "drake/lcmt_iiwa_status.hpp"
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+INFO: Elapsed time: 2.967s, Critical Path: 0.24s
+INFO: 2 processes: 2 internal.
+FAILED: Build did NOT complete successfully
+```
+

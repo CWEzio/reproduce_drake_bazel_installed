@@ -54,3 +54,6 @@ build --action_env=CCACHE_DISABLE=1
 
 # Try to import user-specific configuration local to workspace.
 try-import %workspace%/user.bazelrc
+
+# solve the eigen not found bug
+build --cxxopt=-I/usr/include/eigen3

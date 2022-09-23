@@ -48,8 +48,8 @@ OS_CODENAME = "focal"     # Permitted values are "focal" or "mac".
 
 # To use a local unpacked Drake binary release instead of an http download, set
 # this variable to the correct path, e.g., "/opt/drake".
-INSTALLED_DRAKE_DIR = None
-# INSTALLED_DRAKE_DIR = "/opt/drake" 
+# INSTALLED_DRAKE_DIR = None
+INSTALLED_DRAKE_DIR = "/opt/drake" 
 
 
 # This is only relevant when INSTALLED_DRAKE_DIR is set.

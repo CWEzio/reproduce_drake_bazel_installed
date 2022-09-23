@@ -91,6 +91,22 @@ cc_binary(
     ],
 )
 
+cc_binary(
+    name = "generate_diagram_string",
+    srcs = ["generate_diagram_string.cc"],
+    deps = [
+        "@drake//:drake_shared_library",
+    ],
+)
+
+cc_binary(
+    name = "connection_test",
+    srcs = ["connection_test.cc"],
+    deps = [
+        "@drake//:drake_shared_library",
+    ],
+)
+
 
 # For custom bindings, you *must* link against `drake_shared_library` for *all*
 # C++ libraries; not doing so will lead to ODR (One Definition Rule) linking
